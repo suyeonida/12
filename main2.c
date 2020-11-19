@@ -4,16 +4,23 @@
 
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
-void main(int argc, char *argv[]) {
-	char src[]="The worst things to eat before you sleep";
-	char dst[100];
+int main(int argc, char *argv[]) {
+	FILE *fp;
+	char str[100];
+	int i;
 	
-	char str[30]="happy C programming";
+	fp= fopen("sample.txt","w");
+	if (fp==NULL){
+		return -1;
+	}
 	
-	strcpy(dst,src);
+	for(i=0;i<3;i++){
+		
+	printf("Input a word:");
+	scanf("%s",str);
+	fprintf(fp,"%s\n",str);}
 	
-	printf("copied string: %s\n",dst);	
-	printf("문자열 \"%s\"의 길이 :%i\n",str,strlen(str) );
+	fclose(fp);
 	
-	
+	return 0;
 }
